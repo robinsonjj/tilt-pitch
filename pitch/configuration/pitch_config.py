@@ -26,6 +26,7 @@ class PitchConfig:
         self.influxdb_batch_size = 10
         self.influxdb_timeout_seconds = 5
         # Brewfather
+        self.brewfather_tilt_stream_url = None
         self.brewfather_custom_stream_url = None
         self.brewfather_custom_stream_temp_unit = "F"
         # Brewersfriend
