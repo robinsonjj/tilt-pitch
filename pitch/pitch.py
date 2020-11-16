@@ -32,6 +32,7 @@ normal_providers = [
         PrometheusCloudProvider(config),
         FileCloudProvider(config),
         InfluxDbCloudProvider(config),
+        BrewfatherTiltStreamCloudProvider(config),
         BrewfatherCustomStreamCloudProvider(config),
         BrewersFriendCustomStreamCloudProvider(config)
     ]
