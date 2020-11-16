@@ -38,8 +38,8 @@ class BrewfatherTiltStreamCloudProvider(implements(CloudProviderBase)):
     def _get_payload(self, tilt_status: TiltStatus):
         return {
             'Timepoint': self._get_timepoint(tilt_status),
-            'SG' = str(tilt_status.gravity),
-            'Temp' = str(tilt_status.temp_fahrenheit),
-            'Color' = tilt_status.color.upper(),
-            'Beer' = tilt_status.name
+            'SG': str(tilt_status.gravity),
+            'Temp': str(tilt_status.temp_fahrenheit),
+            'Color': tilt_status.color.upper(),
+            'Beer': tilt_status.name
         }
