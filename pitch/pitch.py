@@ -78,8 +78,20 @@ def _start_scanner(enabled_providers: list, timeout_seconds: int, simulate_beaco
     print("Ready!  Listening for beacons")
     start_time = time.time()
     end_time = start_time + timeout_seconds
+
+    last_scanner_reset = time.time()
+    time_to_reset_scanner = last_scanner_reset + 60
+
     while True:
         _handle_pitch_queue(enabled_providers, console_log)
+        if time.time() > time_to_reset_scanner:
+            last_scanner_reset = time.time()
+            time_to_reset_scanner = last_scanner_reset + 60
+            scanner.end()
+            scanner = BeaconScanner(_beacon_callback)
+            scanner.start()
+            print("...restarted: Tilt scanner")
+
         # check timeout
         if timeout_seconds:
             current_time = time.time()
